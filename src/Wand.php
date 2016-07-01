@@ -8,13 +8,21 @@
 
 namespace Engine;
 
-
 class Wand extends Weapon {
-    function attack(Player $opponent, Player $attacker) {
-        return $opponent;
-    }
+    function attack(Player $attackee, Player $attacker)
+    {
+        $message = 'draw';
 
-  
-    
-    
+        if ($attacker->getMagic() > $attackee->getMagic()) {
+            $this->increase();
+            $message = 'win';
+        };
+
+        if ($attacker->getMagic() < $attackee->getMagic()) {
+            $this->reduce();
+            $message = 'lose';
+        };
+
+        return $message;
+    }
 }

@@ -11,9 +11,11 @@ namespace Engine;
 class AdvancedBattle extends Battle
 {
  
-    function getTotalScore($strength){
-        return $strength + Dice::roll();
- 
+    function setTotalScore($strength){
+        $this->human->setStrength($strength + Dice::roll());
     }
 
+    function getTotalScore(){
+        return  $this->human->getStrength();
+    }
 }

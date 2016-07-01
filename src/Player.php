@@ -18,6 +18,11 @@ abstract class Player
      * @var
      */
     protected $skill;
+
+    /**
+     * @var
+     */
+    protected $magic;
     /**
      * @var
      */
@@ -27,12 +32,15 @@ abstract class Player
      * Opponent constructor.
      * @param $strength
      * @param $skill
+     * @param $magic
      * @param $weapon
      */
-    public function __construct($strength, $skill, $weapon)
+    public function __construct($strength, $skill, $magic, $weapon)
     {
         $this->strength = $strength;
         $this->skill = $skill;
+        $this->magic = $magic; 
+        $this->weapon = $weapon;
     }
 
     /**
@@ -41,16 +49,29 @@ abstract class Player
     function getStrength()
     {
         return $this->strength;
-
     }
-
+    
+    /**
+     * @return mixed
+     */
+    function setStrength($strength)
+    {
+         $this->strength = $strength ;
+    }
     /**
      * @return mixed
      */
     function getSkill()
     {
         return $this->skill;
+    }
 
+    /**
+     * @return mixed
+     */
+    function getMagic()
+    {
+        return $this->magic;
     }
     
     /**

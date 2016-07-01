@@ -25,8 +25,7 @@ abstract class Battle {
     function attacked(){
 
         return $this->machine->getWeapon()->attack($this->human, $this->machine);
-    } 
-    
-    
+    }
+   
 }
 

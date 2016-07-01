@@ -8,7 +8,7 @@ Feature: Test Round
 
   Scenario: Player prepares for attack
     Given I have a strength of '6'
-    When I roll a dice
+    When I select Advanced
     Then I should get my total score
 
 

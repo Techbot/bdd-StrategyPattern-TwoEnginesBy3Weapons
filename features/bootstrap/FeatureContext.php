@@ -42,16 +42,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
     
     public function __construct()
     {
-        $this->human =  new Human(6,6, new Sword('16'), 'Peter' );
-        $this->machine = new Machine(6,6, new Sword('16'));
+        $this->human =  new Human(6,6,6, new Sword('16'), 'Peter' );
+        $this->machine = new Machine(6,6,6, new Sword('16'));
     }
 
     /**
-     * @When I roll a dice 
+     * @When I select Advanced 
      */
-    public function iRollaDice()
+    public function iSelectAdvanced()
     {
-      $this->diceRoll = Dice::roll();
+        $this->round = new AdvancedBattle($this->human, $this->machine );
     }
 
     /**
@@ -59,9 +59,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetMyTotalScore()
     {
-        $this->round = new AdvancedBattle($this->human, $this->machine );
-        $totalScore =  $this->diceRoll + $this->strength ;
-        Assert::assertTrue($this->round->getTotalScore($this->strength ) === $totalScore);
+        Assert::assertTrue($this->round->getTotalScore() >= $this->strength);
     }
 
     /**
@@ -87,6 +85,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
     public function iAttackAnOpponent()
     {
         $this->round = new AdvancedBattle( $this->human, $this->machine );
+   
     }
 
     /**
