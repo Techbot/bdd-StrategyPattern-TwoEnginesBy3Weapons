@@ -9,8 +9,8 @@
 namespace Engine;
 
 
-class Axe extends Weapon {
-    function attack(Player $opponent,Player $attacker) {
+class Wand extends Weapon {
+    function attack(Player $opponent, Player $attacker) {
         return $opponent;
     }
 

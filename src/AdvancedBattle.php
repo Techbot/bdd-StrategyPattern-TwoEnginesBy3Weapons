@@ -8,7 +8,7 @@
 
 namespace Engine;
 
-class Advanced extends Battle
+class AdvancedBattle extends Battle
 {
  
     function getTotalScore($strength){

@@ -11,14 +11,17 @@ namespace Engine;
 class Human extends Player
 {
     private $name;
+   
     
-    public function __construct($strength, $skill,$name)
+    public function __construct($strength, $skill, $weapon, $name)
     {
-        parent::__construct($strength, $skill);
+        parent::__construct($strength, $skill, $weapon);
         
         $this->strength = $strength;
         $this->skill = $skill;
+        $this->weapon = $weapon;
         $this->name = $name;
+
     }
 
     /**
@@ -27,6 +30,8 @@ class Human extends Player
     function getName()
     {
         return $this->name;
-
     }
+
+
+    
 }

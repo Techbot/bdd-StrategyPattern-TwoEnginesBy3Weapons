@@ -1,7 +1,6 @@
 <?php
 namespace Engine;
 
-
 abstract class Battle {
     
     private $playerStrength;
@@ -13,20 +12,19 @@ abstract class Battle {
     public $machine;
     
 
-    function __construct( Human $human, Weapon $weapon, Machine $machine ) {
-        $this->weapon = $weapon;
+    function __construct( Human $human,  Machine $machine ) {
         $this->human = $human;
         $this->machine = $machine;
     }
     
     function attack(){
         
-        return $this->weapon->attack($this->machine, $this->human );
+        return $this->human->getWeapon()->attack($this->machine, $this->human );
     }
 
     function attacked(){
 
-        return $this->weapon->attack($this->human, $this->machine);
+        return $this->machine->getWeapon()->attack($this->human, $this->machine);
     } 
     
     

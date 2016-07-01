@@ -3,7 +3,7 @@
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Engine\Advanced;
+use Engine\AdvancedBattle;
 use Engine\Sword;
 use Engine\Dice;
 use Engine\Weapon;
@@ -36,17 +36,14 @@ class FeatureContext implements Context, SnippetAcceptingContext
     
     private $round;  
     
-    private $opponent;
-    
     private $human;
     
     private $machine;  
     
     public function __construct()
     {
-        $this->human =  new Human(6,6, 'Peter');
-        $this->machine = new Machine(6,6);
-        $this->weapon = new Sword('16');
+        $this->human =  new Human(6,6, new Sword('16'), 'Peter' );
+        $this->machine = new Machine(6,6, new Sword('16'));
     }
 
     /**
@@ -62,7 +59,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetMyTotalScore()
     {
-        $this->round = new Advanced($this->human, new Sword($this->strength), $this->machine );
+        $this->round = new AdvancedBattle($this->human, $this->machine );
         $totalScore =  $this->diceRoll + $this->strength ;
         Assert::assertTrue($this->round->getTotalScore($this->strength ) === $totalScore);
     }
@@ -89,7 +86,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iAttackAnOpponent()
     {
-        $this->round = new Advanced( $this->human, new Sword($this->strength), $this->machine );
+        $this->round = new AdvancedBattle( $this->human, $this->machine );
     }
 
     /**
@@ -97,6 +94,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetAResult()
     {
+        $this->round = new AdvancedBattle( $this->human, $this->machine );
         $result = $this->round->attack();
         echo ('result ' . $result);
         Assert::assertTrue(  $this->round->attack() == true );
@@ -115,7 +113,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iLoseAnAttackOnAnOpponent()
     {
-        $this->strength = $this->weapon->reduce();
+        $this->strength = $this->human->getWeapon()->reduce();
     }
     
     /**
@@ -131,6 +129,6 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iWinAnAttackOnAnOpponent()
     {
-        $this->strength = $this->weapon->increase();
+        $this->strength = $this->human->getWeapon()->increase();
     }
 }

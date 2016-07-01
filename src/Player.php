@@ -18,13 +18,18 @@ abstract class Player
      * @var
      */
     protected $skill;
+    /**
+     * @var
+     */
+    protected $weapon;
 
     /**
      * Opponent constructor.
      * @param $strength
      * @param $skill
+     * @param $weapon
      */
-    public function __construct($strength, $skill)
+    public function __construct($strength, $skill, $weapon)
     {
         $this->strength = $strength;
         $this->skill = $skill;
@@ -46,5 +51,13 @@ abstract class Player
     {
         return $this->skill;
 
+    }
+    
+    /**
+     * @return mixed
+     */
+    function getWeapon()
+    {
+        return $this->weapon;
     }
 }
