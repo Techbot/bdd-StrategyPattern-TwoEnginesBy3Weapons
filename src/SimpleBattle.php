@@ -8,6 +8,6 @@
 
 namespace Engine;
 
-class Simple extends Battle {
+class SimpleBattle extends Battle {
 // do text question specific things
 }
