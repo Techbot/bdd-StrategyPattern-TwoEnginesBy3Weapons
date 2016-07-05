@@ -13,6 +13,7 @@ class AdvancedBattle extends Battle
     
     function __construct (Human $human,  Machine $machine){
    
+        parent::__construct( $human, $machine);
         $this->human = $human;  
         $this->machine = $machine;
         $this->human->setStrength($this->human->getStrength() + Dice::roll());

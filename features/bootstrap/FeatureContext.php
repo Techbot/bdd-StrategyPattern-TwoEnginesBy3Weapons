@@ -59,7 +59,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetMyTotalScore()
     {
-    //    Assert::assertTrue($this->round->getTotalStrength( $this->human) >=6);
+        Assert::assertTrue($this->round->human->getStrength( $this->human) >=6);
     }
 
     /**
