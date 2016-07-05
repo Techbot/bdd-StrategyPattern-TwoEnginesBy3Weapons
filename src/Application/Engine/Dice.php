@@ -1,5 +1,5 @@
 <?php
-namespace Engine;
+namespace Application\Engine;
 
 /**
  * Class Dice

@@ -6,7 +6,7 @@
  * Time: 20:37
  */
 
-namespace Engine;
+namespace Application\Engine;
 
 class Spear extends Weapon {
 

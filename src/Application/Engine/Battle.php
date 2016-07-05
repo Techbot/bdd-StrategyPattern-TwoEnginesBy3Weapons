@@ -1,5 +1,5 @@
 <?php
-namespace Engine;
+namespace Application\Engine;
 
 abstract class Battle {
     
@@ -10,22 +10,18 @@ abstract class Battle {
     public $human;
 
     public $machine;
-    
 
-    function __construct( Human $human,  Machine $machine ) {
+    function __construct( Human $human, Machine $machine ) {
         $this->human = $human;
         $this->machine = $machine;
     }
     
-    function attack(){
-        
-        return $this->human->getWeapon()->attack($this->machine, $this->human );
-    }
+    abstract function attack();
 
     function attacked(){
 
         return $this->machine->getWeapon()->attack($this->human, $this->machine);
     }
-   
+
 }
 

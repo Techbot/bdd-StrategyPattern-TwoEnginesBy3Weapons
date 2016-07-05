@@ -5,7 +5,8 @@
     "autoload": {
         "psr-4": {
             "": "src/",
-            "Engine\\": "src/"
+            "Engine\\": "src/",
+            "Techbot\\": "src/Techbot"
         },
         "classmap": [
             "app/AppKernel.php",

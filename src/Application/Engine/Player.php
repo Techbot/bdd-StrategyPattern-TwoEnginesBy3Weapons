@@ -6,7 +6,7 @@
  * Time: 11:56
  */
 
-namespace Engine;
+namespace Application\Engine;
 
 abstract class Player
 {

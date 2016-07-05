@@ -6,12 +6,16 @@
  * Time: 20:36
  */
 
-namespace Engine;
+namespace Application\Engine;
 
 class Sword extends Weapon
 {
     private $message;
     
+    function __construct( $strength ) {
+        $this->strength = $strength;
+    }
+
     function attack(Player $attackee, Player $attacker)
     {
         $message = 'draw';
